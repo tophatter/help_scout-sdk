@@ -55,8 +55,8 @@ module HelpScout
     end
 
     def self.list_properties()
-      properties_path = URI.parse(HelpScout::API::BASE_URL).path + '/customer-properties'
-      HelpScout.api.get(properties_path).embedded_list.map { |e| new e }
+      properties_path = HelpScout::API::BASE_URL + '/customer-properties'
+      HelpScout.api.get(properties_path, {}).embedded_list.map { |e| new e }
     end
   end
 end
