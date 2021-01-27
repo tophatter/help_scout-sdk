@@ -49,7 +49,7 @@ module HelpScout
     end
 
     def update_properties(operation, path, value = nil)
-      properties_path = URI.parse(hrefs[:self].path) + '/properties'
+      properties_path = URI.parse(hrefs[:self]).path + '/properties'
       HelpScout.api.patch(properties_path, op: operation, path: path, value: value)
       true
     end
