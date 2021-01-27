@@ -48,9 +48,9 @@ module HelpScout
       @hrefs = HelpScout::Util.map_links(params[:_links])
     end
 
-    def update_properties(op, path, value = nil)
+    def update_properties(body)
       properties_path = URI.parse(hrefs[:self]).path + '/properties'
-      HelpScout.api.patch(properties_path, op: op, path: path, value: value)
+      HelpScout.api.patch(properties_path, body)
       true
     end
   end
