@@ -37,7 +37,7 @@ module HelpScout
         case result.status
         when 400 then raise BadRequest.new result.body
         when 401 then raise NotAuthorized, result.body&.dig('error_description')
-        when 404 then raise NotFound, result.body
+        when 404 then raise NotFound, result.to_hash
         when 429 then raise ThrottleLimitReached, result.body&.dig('error')
         else raise InternalError, result.body
         end
