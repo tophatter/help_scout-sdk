@@ -53,5 +53,10 @@ module HelpScout
       HelpScout.api.patch(properties_path, body)
       true
     end
+
+    def self.list_properties()
+      properties_path = URI.parse(HelpScout::API.BASE_URL).path + '/customer-properties'
+      HelpScout.api.get(properties_path, query).embedded_list.map { |e| new e }
+    end
   end
 end
