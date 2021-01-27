@@ -54,7 +54,7 @@ module HelpScout
       true
     end
 
-    def self.list_properties()
+    def list_properties()
       properties_path = '/customer-properties'
       HelpScout.api.get(properties_path, {}).embedded_list.map { |e| new e }
     end
